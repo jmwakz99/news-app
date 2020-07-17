@@ -41,7 +41,7 @@ class App extends React.Component {
         <div className="App">
           <SearchBox
             type="search"
-            placeholder="search news from different sources e.g fox news, bbc news..."
+            placeholder="search news from different sources e.g fox news, bbc news.."
             handleChange={this.handleChange}
           />
           <NewsList news={searchedNews} />
