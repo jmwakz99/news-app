@@ -1,5 +1,6 @@
 import React from "react";
 import NewsList from "./news-list/news-list.component";
+import SearchBox from "./search-box/search-box.component";
 import "./App.css";
 
 class App extends React.Component {
@@ -12,7 +13,7 @@ class App extends React.Component {
   }
   componentDidMount() {
     fetch(
-      `http://newsapi.org/v2/everything?q=bitcoin&from=2020-06-16&sortBy=publishedAt&apiKey=962af81ab53546d9b8137ee43ffad214`
+      `https://newsapi.org/v2/top-headlines?country=us&apiKey=f1d8d6b770cf4c828522e97c7db914f5 `
     )
       .then((response) => response.json())
       .then((news) => {
@@ -23,10 +24,22 @@ class App extends React.Component {
         });
       });
   }
+  handleChange = (e) => {
+    this.setState({ searchField: e.target.value });
+  };
   render() {
+    const { news, searchField } = this.state;
+    const searchedNews = news.filter((habari) =>
+      habari.source.name.toLowerCase().includes(searchField.toLowerCase())
+    );
     return (
       <div className="App">
-        <NewsList news={this.state.news} />
+        <SearchBox
+          type="search"
+          placeholder="search news from different sources e.g fox news..."
+          handleChange={this.handleChange}
+        />
+        <NewsList news={searchedNews} />
       </div>
     );
   }

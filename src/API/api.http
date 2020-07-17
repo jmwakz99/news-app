@@ -1,2 +1,2 @@
-GET http://newsapi.org/v2/everything?q=bitcoin&from=2020-06-16&sortBy=publishedAt&apiKey=962af81ab53546d9b8137ee43ffad214 
+GET https://newsapi.org/v2/top-headlines?country=us&apiKey=f1d8d6b770cf4c828522e97c7db914f5 
 

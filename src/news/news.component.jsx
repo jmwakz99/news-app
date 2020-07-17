@@ -42,7 +42,7 @@ const News = (props) => {
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <Grid container spacing={2}>
-          <Grid item>
+          <Grid item xs={12} sm={6}>
             <ButtonBase className={classes.image}>
               <img
                 className={classes.img}
