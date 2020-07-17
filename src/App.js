@@ -30,7 +30,7 @@ class App extends React.Component {
   render() {
     const { news, searchField } = this.state;
     let searchedNews = [];
-    if (this.state.news.length > 0) {
+    if (news.length > 0) {
       searchedNews = news.filter((habari) =>
         habari.source.name.toLowerCase().includes(searchField.toLowerCase())
       );
