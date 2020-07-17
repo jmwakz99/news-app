@@ -29,14 +29,12 @@ class App extends React.Component {
   };
   render() {
     const { news, searchField } = this.state;
-    let searchedNews = [];
-    if (news.length > 0) {
-      searchedNews = news.filter((habari) =>
-        habari.source.name.toLowerCase().includes(searchField.toLowerCase())
-      );
-    }
 
-    if (news.length > 0) {
+    const searchedNews = news.filter((habari) =>
+      habari.source.name.toLowerCase().includes(searchField.toLowerCase())
+    );
+
+    if (searchedNews.length > 0) {
       return (
         <div className="App">
           <SearchBox
