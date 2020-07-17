@@ -36,16 +36,20 @@ class App extends React.Component {
       );
     }
 
-    return (
-      <div className="App">
-        <SearchBox
-          type="search"
-          placeholder="search news from different sources e.g fox news, bbc news..."
-          handleChange={this.handleChange}
-        />
-        <NewsList news={searchedNews} />
-      </div>
-    );
+    if (news.length > 0) {
+      return (
+        <div className="App">
+          <SearchBox
+            type="search"
+            placeholder="search news from different sources e.g fox news, bbc news..."
+            handleChange={this.handleChange}
+          />
+          <NewsList news={searchedNews} />
+        </div>
+      );
+    } else {
+      return <div>Looding..</div>;
+    }
   }
 }
 
